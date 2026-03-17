@@ -3,98 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <base href = "https://github.com" target = "_blank">
+    <title>Soham Kukreti</title>
+    <base href="https://github.com" target="_blank">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg:      #eae5db;
+            --text:    #282520;
+            --muted:   #7a7060;
+            --border:  #c4bdb2;
+            --accent:  #4e5e4c;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 13.5px;
+            line-height: 1.75;
+            padding: 3.5rem 1.5rem;
+        }
+
+        .container {
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        /* ── Header ── */
+        .heading {
+            margin-bottom: 3rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 2px solid var(--text);
+        }
+
+        .heading h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .heading p.tagline {
+            margin-top: 0.5rem;
+            color: var(--muted);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* ── Section titles ── */
+        h2 {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 3rem;
+            margin-bottom: 1.1rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ── Body text ── */
+        p {
+            color: var(--text);
+        }
+
+        p + p {
+            margin-top: 0.6rem;
+        }
+
+        b {
+            font-weight: 700;
+        }
+
+        /* ── Lists ── */
+        ol, ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        /* top-level list items */
+        .entry {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .entry:last-child {
+            border-bottom: none;
+        }
+
+        .entry-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .entry-title span.role {
+            font-weight: 700;
+        }
+
+        .entry-title span.date {
+            color: var(--muted);
+            font-size: 0.78rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* nested bullet points under experience */
+        .entry ul {
+            margin-top: 0.5rem;
+            padding-left: 0;
+        }
+
+        .entry ul li {
+            padding: 0.15rem 0;
+            color: var(--muted);
+            font-size: 0.88em;
+        }
+
+        .entry ul li::before {
+            content: "– ";
+            color: var(--border);
+        }
+
+        /* Projects & Achievements plain lists */
+        .plain-list li {
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .plain-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Skills rows */
+        .skills-list li {
+            padding: 0.55rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skills-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* ── Links ── */
+        a {
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: var(--border);
+        }
+
+        a:hover {
+            color: var(--accent);
+            text-decoration-color: var(--accent);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+
         <div class="heading">
-            <h1>My portfolio</h1>
+            <h1>Soham Kukreti</h1>
+            <p class="tagline">CS Student &nbsp;/&nbsp; Engineer &nbsp;/&nbsp; Builder</p>
         </div>
-        <h2>About Me</h2>
+
+        <h2>About</h2>
         <p>
-            Hi, I am Soham, a 22-year-old Computer Science student at JIIT Noida.<br>
-            I love building cool stuff using code, with Python being my language of choice.<br>
-            I am currently working at Crawl4AI, where we are democratising data with our open source web crawler and cloud API. <br>
+            Hi, I am Soham, a 22-year-old Computer Science student at JIIT Noida.
+            I love building cool stuff using code, with Python being my language of choice.
+            I am currently working at Crawl4AI, where we are democratising data with our open source web crawler and cloud API.
             Additionally, I produce music, play the guitar, and beatbox.
         </p>
+
         <h2>Experience</h2>
         <ol>
-            <li>
-                <b>Engineer</b> at Crawl4AI (December 2025 - Present):
+            <li class="entry">
+                <div class="entry-title">
+                    <span class="role">Engineer &mdash; Crawl4AI</span>
+                    <span class="date">Dec 2025 &ndash; Present</span>
+                </div>
                 <ul>
                     <li>Developing the Crawl4AI n8n community node, enabling seamless workflow automation and integrations.</li>
                     <li>Fixing bugs and improving stability in the open-source Crawl4AI codebase, contributing to ongoing product reliability and performance.</li>
-                    <li>Performing testing, providing technical guidance, and assisting with onboarding new users to the Crawl4AI Cloud, ensuring a smooth adoption experience.</li>
+                    <li>Performing testing, providing technical guidance, and assisting with onboarding new users to the Crawl4AI Cloud.</li>
                 </ul>
             </li>
-             <li>
-                <b>Data Scient intern</b> at MagicBricks (June 2025 - July 2025):
+            <li class="entry">
+                <div class="entry-title">
+                    <span class="role">Data Science Intern &mdash; MagicBricks</span>
+                    <span class="date">Jun 2025 &ndash; Jul 2025</span>
+                </div>
                 <ul>
-                    <li>Engineered a RAG pipeline for real estate PDFs using Tesseract OCR, Google Embeddings API, and Weaviate/</li>
-                    <li>Processed 20,000+ properties to find geospatial matches within 3-5 km for a RAG-based property recommendation bot.</li>
+                    <li>Engineered a RAG pipeline for real estate PDFs using Tesseract OCR, Google Embeddings API, and Weaviate.</li>
+                    <li>Processed 20,000+ properties to find geospatial matches within 3–5 km for a RAG-based property recommendation bot.</li>
                     <li>Applied scalar quantization to compress vector embeddings, reducing memory footprint by 75%.</li>
                 </ul>
             </li>
-            <li>
-                <b>Intern</b> at jobup.ai (August 2024 - November 2024):
+            <li class="entry">
+                <div class="entry-title">
+                    <span class="role">Intern &mdash; jobup.ai</span>
+                    <span class="date">Aug 2024 &ndash; Nov 2024</span>
+                </div>
                 <ul>
-                    <li>Primarily worked with Python.</li>
-                    <li>Used Flask to build backend APIs.</li>
+                    <li>Built backend APIs with Flask and tested them using Postman.</li>
                     <li>Developed user-centric applications leveraging large language models.</li>
-                    <li>Tested APIs and core functionalities using Postman.</li>
-                    <li>Implemented advanced LLM techniques such as Retrieval Augmented Generation and Structured Outputs to build dynamic systems.</li>
+                    <li>Implemented advanced LLM techniques such as RAG and Structured Outputs to build dynamic systems.</li>
                 </ul>
             </li>
-            <li>
-                <b>Technical Coordinator</b> at Open Source Developers Community, JIIT Noida (July 2024 - Present):
+            <li class="entry">
+                <div class="entry-title">
+                    <span class="role">Technical Coordinator &mdash; OSDC, JIIT Noida</span>
+                    <span class="date">Jul 2024 &ndash; Present</span>
+                </div>
                 <ul>
                     <li>Promoted open-source culture within the college.</li>
-                    <li>Organized hackathons, events, and talks engaging over 800 students.</li>
+                    <li>Organised hackathons, events, and talks engaging over 800 students.</li>
                 </ul>
             </li>
         </ol>
+
         <h2>Projects</h2>
-        <ol>
-            <li>
-                <a href="/SohamKukreti/URLias" >URLias</a>: A cross‑browser extension that lets you jump to your favorite sites using short aliases, supports wildcard matching, omnibox integration, and sync storage.
-            </li>
-            <li>
-                <a href="/SohamKukreti/omilia">Omilia</a>: An educational platformer game developed to help children learn new languages through an engaging format.
-            </li>
-            <li>
-                <a href="/SohamKukreti/emotiv-bci">BCI Gaming</a>: A project aimed at allowing people to play video games using EEG signals generated from the brain.
-            </li>
-            <li>
-                <a href="/SohamKukreti/FinWiser">FinWiser</a>: A financial analysis tool featuring real-time market data, financial tracking, SIP investment planning, and interactive charts, built with Python, Plotly, Streamlit, NumPy, and Pandas.
-            </li>
-            <li>
-                <a href="/SohamKukreti/SignSense">SignSense</a>: A sign language detection application developed using OpenCV, MediaPipe, TensorFlow, and Pygame.
-            </li>
-            <li>
-                <a href="/SohamKukreti/django-todo">Todo Tasks Tracker</a>: A task management application developed with Django and hosted on Railway with a PostgreSQL database.
-            </li>
-            <li>
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">ResumeAnalyzer</a>: A tool that analyzes resumes against job descriptions, providing match scores, missing keywords, and personalized suggestions. Built with Flask and Python.
-            </li>
-            <li>
-                <a href="/SohamKukreti/miprofilio">miprofilio</a>: A unified dashboard that aggregates coding profiles from various platforms, extracts relevant skills, and displays them in a consolidated view. Developed using TypeScript and Python.
-            </li>
+        <ol class="plain-list">
+            <li><a href="/SohamKukreti/URLias">URLias</a> &mdash; A cross-browser extension that lets you jump to your favourite sites using short aliases, supports wildcard matching, omnibox integration, and sync storage.</li>
+            <li><a href="/SohamKukreti/omilia">Omilia</a> &mdash; An educational platformer game developed to help children learn new languages through an engaging format.</li>
+            <li><a href="/SohamKukreti/emotiv-bci">BCI Gaming</a> &mdash; A project aimed at allowing people to play video games using EEG signals generated from the brain.</li>
+            <li><a href="/SohamKukreti/FinWiser">FinWiser</a> &mdash; A financial analysis tool featuring real-time market data, financial tracking, SIP investment planning, and interactive charts. Built with Python, Plotly, Streamlit, NumPy, and Pandas.</li>
+            <li><a href="/SohamKukreti/SignSense">SignSense</a> &mdash; A sign language detection application developed using OpenCV, MediaPipe, TensorFlow, and Pygame.</li>
+            <li><a href="/SohamKukreti/django-todo">Todo Tasks Tracker</a> &mdash; A task management application developed with Django and hosted on Railway with a PostgreSQL database.</li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">ResumeAnalyzer</a> &mdash; A tool that analyses resumes against job descriptions, providing match scores, missing keywords, and personalised suggestions. Built with Flask and Python.</li>
+            <li><a href="/SohamKukreti/miprofilio">miprofilio</a> &mdash; A unified dashboard that aggregates coding profiles from various platforms, extracts relevant skills, and displays them in a consolidated view. Developed using TypeScript and Python.</li>
         </ol>
+
         <h2>Achievements</h2>
-        <ul>
-            <li>1st Place at OSDHACK’23 Hackathon </li>
-            <li>1st Place at Codejam v3 Hackathon </li>
-            <li>Top 5 at BITBOX 3.0 Hackathon</li>
+        <ul class="plain-list">
+            <li>1st Place &mdash; OSDHACK&rsquo;23 Hackathon</li>
+            <li>1st Place &mdash; Codejam v3 Hackathon</li>
+            <li>Top 5 &mdash; BITBOX 3.0 Hackathon</li>
         </ul>
+
         <h2>Skills</h2>
-        <ul>
-            <li><b>Programming Languages:</b> Python, C, C++, SQL, HTML, CSS, JavaScript</li>
-            <li><b>Frameworks & Tools:</b> Flask, Django, Postman, Git, Pygame, NumPy, Plotly, Streamlit</li>
-            <li><b>Technical:</b> Data Visualization, Machine Learning, Linux, Bash Scripting</li>
-            <li><b>Other:</b> Management, Public Speaking, Communication, Video Editing, Social Media Marketing, Music Production, Audio Editing</li>
+        <ul class="skills-list">
+            <li><b>Languages</b> &nbsp; Python &middot; C &middot; C++ &middot; SQL &middot; HTML &middot; CSS &middot; JavaScript</li>
+            <li><b>Frameworks &amp; Tools</b> &nbsp; Flask &middot; Django &middot; Postman &middot; Git &middot; Pygame &middot; NumPy &middot; Plotly &middot; Streamlit</li>
+            <li><b>Technical</b> &nbsp; Data Visualisation &middot; Machine Learning &middot; Linux &middot; Bash Scripting</li>
+            <li><b>Other</b> &nbsp; Management &middot; Public Speaking &middot; Video Editing &middot; Music Production &middot; Audio Editing</li>
         </ul>
+
     </div>
 </body>
 </html>
-    
