@@ -34,13 +34,23 @@
     height: auto;
     margin: 0 0 12px 20px;
   }
+  @media (max-width: 600px) {
+    .portrait {
+      float: none;
+      display: block;
+      width: 160px;
+      max-width: none;
+      margin: 0 auto 20px auto;
+    }
+    h1 { font-size: 2.2em; text-align: center; }
+  }
 </style>
 </head>
 <body>
 
-<img class="portrait" src="assets/portrait.svg" alt="Hand-drawn portrait of Soham Kukreti">
-
 <h1>Soham Kukreti</h1>
+
+<img class="portrait" src="assets/portrait.svg" alt="Hand-drawn portrait of Soham Kukreti">
 
 <p>I like to build fun little projects, mostly in Python. I am 22, and I work at <a target="_blank" rel="noopener" href="https://github.com/unclecode/crawl4ai/">Crawl4AI</a>, an open source web crawling python library. When I am not coding, I play games, make music, watch football and beatbox.</p>
 
