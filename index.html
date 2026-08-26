@@ -1,607 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soham Kukreti</title>
-    <base href="https://github.com" target="_blank">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg:      #eae5db;
-            --text:    #282520;
-            --muted:   #7a7060;
-            --border:  #c4bdb2;
-            --accent:  #4e5e4c;
-        }
-
-        body {
-            font-family: 'Space Mono', monospace;
-            background: var(--bg);
-            color: var(--text);
-            font-size: 13.5px;
-            line-height: 1.75;
-            padding: 3.5rem 1.5rem;
-        }
-
-        .container {
-            max-width: 740px;
-            margin: 0 auto;
-        }
-
-        /* ── Header ── */
-        .heading {
-            margin-bottom: 3rem;
-            padding-bottom: 1.25rem;
-            border-bottom: 2px solid var(--text);
-        }
-
-        .heading h1 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-        }
-
-        .heading p.tagline {
-            margin-top: 0.5rem;
-            color: var(--muted);
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        /* ── Section titles ── */
-        h2 {
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-top: 3rem;
-            margin-bottom: 1.1rem;
-            padding-bottom: 0.45rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        /* ── Body text ── */
-        p {
-            color: var(--text);
-        }
-
-        p + p {
-            margin-top: 0.6rem;
-        }
-
-        b {
-            font-weight: 700;
-        }
-
-        /* ── Lists ── */
-        ol, ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        /* top-level list items */
-        .entry {
-            padding: 0.9rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .entry:last-child {
-            border-bottom: none;
-        }
-
-        .entry-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .entry-title span.role {
-            font-weight: 700;
-        }
-
-        .entry-title span.date {
-            color: var(--muted);
-            font-size: 0.78rem;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        /* nested bullet points under experience */
-        .entry ul {
-            margin-top: 0.5rem;
-            padding-left: 0;
-        }
-
-        .entry ul li {
-            padding: 0.15rem 0;
-            color: var(--muted);
-            font-size: 0.88em;
-        }
-
-        .entry ul li::before {
-            content: "– ";
-            color: var(--border);
-        }
-
-        /* Projects & Achievements plain lists */
-        .plain-list li {
-            padding: 0.65rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .plain-list li:last-child {
-            border-bottom: none;
-        }
-
-        /* Skills rows */
-        .skills-list li {
-            padding: 0.55rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .skills-list li:last-child {
-            border-bottom: none;
-        }
-
-        /* ── Links ── */
-        a {
-            color: var(--text);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            text-decoration-color: var(--border);
-        }
-
-        a:hover {
-            color: var(--accent);
-            text-decoration-color: var(--accent);
-        }
-
-        /* ── Feed Candy button (default: subtle) ── */
-        .candy-btn-wrap {
-            margin-top: 3.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        #candy-btn {
-            font-family: inherit;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            text-transform: lowercase;
-            color: var(--muted);
-            background: none;
-            border: 1px solid var(--border);
-            padding: 0.4rem 1rem;
-            cursor: pointer;
-            transition: color 0.2s, border-color 0.2s;
-        }
-
-        #candy-btn:hover {
-            color: var(--text);
-            border-color: var(--text);
-        }
-
-
-        /* =====================================================
-           CANDY MODE — MAXIMUM CHAOS
-           ===================================================== */
-
-        @keyframes strobe {
-            0%   { background-color: #ffb3c1; }
-            11%  { background-color: #ffcba4; }
-            22%  { background-color: #fff4a3; }
-            33%  { background-color: #b8f0a8; }
-            44%  { background-color: #a8eee0; }
-            55%  { background-color: #a8d8f0; }
-            66%  { background-color: #c8b8f8; }
-            77%  { background-color: #f0b8e8; }
-            88%  { background-color: #ffb3d4; }
-            100% { background-color: #ffb3c1; }
-        }
-
-        @keyframes txt-rainbow {
-            0%   { color: #ff0044; }
-            14%  { color: #ff6600; }
-            28%  { color: #ffe000; }
-            42%  { color: #44ff00; }
-            57%  { color: #00ccff; }
-            71%  { color: #6600ff; }
-            85%  { color: #ff00cc; }
-            100% { color: #ff0044; }
-        }
-
-        @keyframes border-rainbow {
-            0%   { border-color: #ff0044; }
-            14%  { border-color: #ff6600; }
-            28%  { border-color: #ffe000; }
-            42%  { border-color: #44ff00; }
-            57%  { border-color: #00ccff; }
-            71%  { border-color: #6600ff; }
-            85%  { border-color: #ff00cc; }
-            100% { border-color: #ff0044; }
-        }
-
-        @keyframes bg-rainbow {
-            0%   { background-color: #ff004422; }
-            14%  { background-color: #ff660022; }
-            28%  { background-color: #ffe00033; }
-            42%  { background-color: #44ff0022; }
-            57%  { background-color: #00ccff22; }
-            71%  { background-color: #6600ff22; }
-            85%  { background-color: #ff00cc22; }
-            100% { background-color: #ff004422; }
-        }
-
-        @keyframes bounce {
-            0%,100% { transform: translateY(0) rotate(0deg); }
-            30%     { transform: translateY(-18px) rotate(-4deg); }
-            60%     { transform: translateY(-8px) rotate(3deg); }
-        }
-
-        @keyframes shake {
-            0%,100% { transform: translateX(0); }
-            20%     { transform: translateX(-8px) rotate(-2deg); }
-            40%     { transform: translateX(8px) rotate(2deg); }
-            60%     { transform: translateX(-5px); }
-            80%     { transform: translateX(5px); }
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-        }
-
-        @keyframes swing {
-            0%,100% { transform: rotate(-8deg); }
-            50%     { transform: rotate(8deg); }
-        }
-
-        @keyframes zoom-pulse {
-            0%,100% { transform: scale(1); }
-            50%     { transform: scale(1.08); }
-        }
-
-        @keyframes banner-scroll {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-50%); }
-        }
-
-        @keyframes float-up {
-            0%   { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            80%  { opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
-        }
-
-        @keyframes neon-h1 {
-            0%,100% {
-                text-shadow: 0 0 8px #ff0044, 4px 4px 0 #ff00cc, -4px -4px 0 #00ccff;
-                color: #ff0044;
-            }
-            25% {
-                text-shadow: 0 0 8px #ffe000, 4px 4px 0 #ff6600, -4px -4px 0 #44ff00;
-                color: #ffe000;
-            }
-            50% {
-                text-shadow: 0 0 8px #00ccff, 4px 4px 0 #6600ff, -4px -4px 0 #ff0044;
-                color: #00ccff;
-            }
-            75% {
-                text-shadow: 0 0 8px #cc00ff, 4px 4px 0 #ff00cc, -4px -4px 0 #ffe000;
-                color: #cc00ff;
-            }
-        }
-
-        /* body */
-        body.candy-mode {
-            animation: strobe 4s infinite;
-            overflow-x: hidden;
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-        }
-
-        /* container */
-        body.candy-mode .container {
-            animation: shake 0.9s infinite, border-rainbow 0.4s infinite;
-            border: 5px solid;
-            padding: 1.5rem;
-        }
-
-        /* heading block */
-        body.candy-mode .heading {
-            animation: bounce 0.55s infinite, border-rainbow 0.35s infinite;
-            border-bottom: 6px solid;
-            padding-bottom: 1rem;
-        }
-
-        /* h1 */
-        body.candy-mode h1 {
-            font-size: 3.2rem !important;
-            animation: neon-h1 0.5s infinite, zoom-pulse 0.6s infinite;
-        }
-
-        /* tagline */
-        body.candy-mode .tagline {
-            animation: txt-rainbow 0.4s infinite;
-            font-size: 1rem !important;
-            letter-spacing: 0.25em;
-        }
-
-        /* section headings */
-        body.candy-mode h2 {
-            font-size: 1.1rem !important;
-            letter-spacing: 0.2em;
-            border-bottom: 3px solid;
-            animation: txt-rainbow 0.35s infinite, swing 0.7s infinite, border-rainbow 0.35s infinite;
-            transform-origin: left center;
-            padding: 0.3rem 0;
-        }
-
-        /* experience entries */
-        body.candy-mode .entry {
-            border: 3px solid;
-            margin: 0.6rem 0;
-            padding: 0.8rem;
-            animation: bounce 0.65s infinite, border-rainbow 0.45s infinite, bg-rainbow 0.45s infinite;
-        }
-        body.candy-mode .entry:nth-child(2) { animation-delay: 0.1s, 0.15s, 0.15s; }
-        body.candy-mode .entry:nth-child(3) { animation-delay: 0.2s, 0.3s,  0.3s;  }
-        body.candy-mode .entry:nth-child(4) { animation-delay: 0.3s, 0.45s, 0.45s; }
-
-        body.candy-mode .entry-title .role {
-            animation: txt-rainbow 0.4s infinite;
-        }
-        body.candy-mode .entry-title .date {
-            animation: txt-rainbow 0.4s 0.2s infinite;
-        }
-
-        body.candy-mode .entry ul li {
-            animation: shake 0.5s infinite;
-            font-size: 0.95em;
-            color: inherit;
-        }
-        body.candy-mode .entry ul li:nth-child(2) { animation-delay: 0.1s; }
-        body.candy-mode .entry ul li:nth-child(3) { animation-delay: 0.2s; }
-
-        /* body text */
-        body.candy-mode p {
-            animation: txt-rainbow 0.5s infinite;
-            font-size: 1rem;
-        }
-
-        /* links */
-        body.candy-mode a {
-            animation: txt-rainbow 0.35s infinite;
-            text-decoration-style: wavy !important;
-            font-size: 1.05em;
-            font-weight: 700;
-        }
-
-        /* plain lists (projects, achievements) */
-        body.candy-mode .plain-list li {
-            animation: bounce 0.7s infinite, border-rainbow 0.5s infinite, bg-rainbow 0.5s infinite;
-            border: 2px solid;
-            padding: 0.6rem;
-            margin: 0.4rem 0;
-        }
-        body.candy-mode .plain-list li:nth-child(2)  { animation-delay: 0.08s, 0.1s, 0.1s; }
-        body.candy-mode .plain-list li:nth-child(3)  { animation-delay: 0.16s, 0.2s, 0.2s; }
-        body.candy-mode .plain-list li:nth-child(4)  { animation-delay: 0.24s, 0.3s, 0.3s; }
-        body.candy-mode .plain-list li:nth-child(5)  { animation-delay: 0.32s, 0.4s, 0.4s; }
-        body.candy-mode .plain-list li:nth-child(6)  { animation-delay: 0.40s, 0.5s, 0.5s; }
-        body.candy-mode .plain-list li:nth-child(7)  { animation-delay: 0.48s, 0.6s, 0.6s; }
-        body.candy-mode .plain-list li:nth-child(8)  { animation-delay: 0.56s, 0.7s, 0.7s; }
-
-        /* skills list */
-        body.candy-mode .skills-list li {
-            animation: shake 0.6s infinite, border-rainbow 0.4s infinite;
-            border: 2px solid;
-            padding: 0.5rem;
-            margin: 0.3rem 0;
-        }
-        body.candy-mode .skills-list li:nth-child(2) { animation-delay: 0.12s, 0.2s; }
-        body.candy-mode .skills-list li:nth-child(3) { animation-delay: 0.24s, 0.4s; }
-        body.candy-mode .skills-list li:nth-child(4) { animation-delay: 0.36s, 0.6s; }
-
-        /* the button itself goes wild */
-        body.candy-mode #candy-btn {
-            animation: spin 0.6s linear infinite, border-rainbow 0.3s infinite, bg-rainbow 0.3s infinite;
-            font-size: 1.2rem !important;
-            padding: 1rem 2.5rem !important;
-            border: 4px solid !important;
-            letter-spacing: 0.2em;
-            color: white !important;
-            text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
-            font-weight: 700;
-        }
-
-        /* ── Rainbow banners (injected by JS) ── */
-        .candy-banner {
-            position: fixed;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            overflow: hidden;
-            white-space: nowrap;
-            padding: 0.55rem 0;
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            font-size: 1rem;
-            color: #fff;
-            text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
-            background: linear-gradient(90deg,
-                #ff0044, #ff6600, #ffe000,
-                #44ff00, #00ccff, #6600ff,
-                #ff00cc, #ff0044);
-            background-size: 200% 100%;
-            animation: border-rainbow 0.4s infinite;
-        }
-
-        .candy-banner-top    { top: 0; }
-        .candy-banner-bottom { bottom: 0; }
-
-        .candy-banner .banner-inner {
-            display: inline-block;
-            animation: banner-scroll 6s linear infinite;
-        }
-
-        /* ── Floating emoji stars (injected by JS) ── */
-        .candy-star {
-            position: fixed;
-            bottom: -3rem;
-            pointer-events: none;
-            z-index: 9998;
-            animation: float-up linear infinite;
-            user-select: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soham Kukreti</title>
+<style>
+  @font-face {
+    font-family: "My-Hand";
+    src: url("assets/My-Hand-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  body {
+    font-family: "My-Hand", "Georgia", serif;
+    font-size: 24px;
+    line-height: 1.5;
+    max-width: 40em;
+    margin: 0 auto;
+    padding: 48px 20px;
+    color: #111;
+    background: #fff;
+  }
+  h1 { font-size: 3em; line-height: 1.15; margin: 0 0 16px 0; }
+  h2 { font-size: 1.5em; margin: 40px 0 10px 0; }
+  h3 { font-size: 1.15em; margin: 24px 0 4px 0; }
+  p { margin: 8px 0; }
+  a { text-underline-offset: 3px; }
+  .portrait {
+    float: right;
+    width: 230px;
+    max-width: 40%;
+    height: auto;
+    margin: 0 0 12px 20px;
+  }
+</style>
 </head>
 <body>
-    <div class="container">
 
-        <div class="heading">
-            <h1>Soham Kukreti</h1>
-            <p class="tagline">CS Student &nbsp;/&nbsp; Engineer &nbsp;/&nbsp; Builder</p>
-        </div>
+<img class="portrait" src="assets/portrait.svg" alt="Hand-drawn portrait of Soham Kukreti">
 
-        <h2>About</h2>
-        <p>
-            Hi, I am Soham, a 22-year-old Computer Science student at JIIT Noida.
-            I love building cool stuff using code, with Python being my language of choice.
-            I am currently working at Crawl4AI, where we are democratising data with our open source web crawler and cloud API.
-            Additionally, I produce music, play the guitar, and beatbox.
-        </p>
+<h1>Soham Kukreti</h1>
 
-        <h2>Experience</h2>
-        <ol>
-            <li class="entry">
-                <div class="entry-title">
-                    <span class="role">Engineer &mdash; Crawl4AI</span>
-                    <span class="date">Dec 2025 &ndash; Present</span>
-                </div>
-                <ul>
-                    <li>Developing the Crawl4AI n8n community node, enabling seamless workflow automation and integrations.</li>
-                    <li>Fixing bugs and improving stability in the open-source Crawl4AI codebase, contributing to ongoing product reliability and performance.</li>
-                    <li>Performing testing, providing technical guidance, and assisting with onboarding new users to the Crawl4AI Cloud.</li>
-                </ul>
-            </li>
-            <li class="entry">
-                <div class="entry-title">
-                    <span class="role">Data Science Intern &mdash; MagicBricks</span>
-                    <span class="date">Jun 2025 &ndash; Jul 2025</span>
-                </div>
-                <ul>
-                    <li>Engineered a RAG pipeline for real estate PDFs using Tesseract OCR, Google Embeddings API, and Weaviate.</li>
-                    <li>Processed 20,000+ properties to find geospatial matches within 3–5 km for a RAG-based property recommendation bot.</li>
-                    <li>Applied scalar quantization to compress vector embeddings, reducing memory footprint by 75%.</li>
-                </ul>
-            </li>
-            <li class="entry">
-                <div class="entry-title">
-                    <span class="role">Intern &mdash; jobup.ai</span>
-                    <span class="date">Aug 2024 &ndash; Nov 2024</span>
-                </div>
-                <ul>
-                    <li>Built backend APIs with Flask and tested them using Postman.</li>
-                    <li>Developed user-centric applications leveraging large language models.</li>
-                    <li>Implemented advanced LLM techniques such as RAG and Structured Outputs to build dynamic systems.</li>
-                </ul>
-            </li>
-            <li class="entry">
-                <div class="entry-title">
-                    <span class="role">Technical Coordinator &mdash; OSDC, JIIT Noida</span>
-                    <span class="date">Jul 2024 &ndash; Present</span>
-                </div>
-                <ul>
-                    <li>Promoted open-source culture within the college.</li>
-                    <li>Organised hackathons, events, and talks engaging over 800 students.</li>
-                </ul>
-            </li>
-        </ol>
+<p>I like to build fun little projects, mostly in Python. I am 22, and I work at <a target="_blank" rel="noopener" href="https://github.com/unclecode/crawl4ai/">Crawl4AI</a>, an open source web crawling python library. When I am not coding, I play games, make music, watch football and beatbox.</p>
 
-        <h2>Projects</h2>
-        <ol class="plain-list">
-            <li><a href="/SohamKukreti/URLias">URLias</a> &mdash; A cross-browser extension that lets you jump to your favourite sites using short aliases, supports wildcard matching, omnibox integration, and sync storage.</li>
-            <li><a href="/SohamKukreti/omilia">Omilia</a> &mdash; An educational platformer game developed to help children learn new languages through an engaging format.</li>
-            <li><a href="/SohamKukreti/emotiv-bci">BCI Gaming</a> &mdash; A project aimed at allowing people to play video games using EEG signals generated from the brain.</li>
-            <li><a href="/SohamKukreti/FinWiser">FinWiser</a> &mdash; A financial analysis tool featuring real-time market data, financial tracking, SIP investment planning, and interactive charts. Built with Python, Plotly, Streamlit, NumPy, and Pandas.</li>
-            <li><a href="/SohamKukreti/SignSense">SignSense</a> &mdash; A sign language detection application developed using OpenCV, MediaPipe, TensorFlow, and Pygame.</li>
-            <li><a href="/SohamKukreti/django-todo">Todo Tasks Tracker</a> &mdash; A task management application developed with Django and hosted on Railway with a PostgreSQL database.</li>
-            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">ResumeAnalyzer</a> &mdash; A tool that analyses resumes against job descriptions, providing match scores, missing keywords, and personalised suggestions. Built with Flask and Python.</li>
-            <li><a href="/SohamKukreti/miprofilio">miprofilio</a> &mdash; A unified dashboard that aggregates coding profiles from various platforms, extracts relevant skills, and displays them in a consolidated view. Developed using TypeScript and Python.</li>
-        </ol>
+<p><a target="_blank" rel="noopener" href="https://github.com/SohamKukreti">github.com/SohamKukreti</a></p>
 
-        <h2>Achievements</h2>
-        <ul class="plain-list">
-            <li>1st Place &mdash; OSDHACK&rsquo;23 Hackathon</li>
-            <li>1st Place &mdash; Codejam v3 Hackathon</li>
-            <li>Top 5 &mdash; BITBOX 3.0 Hackathon</li>
-        </ul>
 
-        <h2>Skills</h2>
-        <ul class="skills-list">
-            <li><b>Languages</b> &nbsp; Python &middot; C &middot; C++ &middot; SQL &middot; HTML &middot; CSS &middot; JavaScript</li>
-            <li><b>Frameworks &amp; Tools</b> &nbsp; Flask &middot; Django &middot; Postman &middot; Git &middot; Pygame &middot; NumPy &middot; Plotly &middot; Streamlit</li>
-            <li><b>Technical</b> &nbsp; Data Visualisation &middot; Machine Learning &middot; Linux &middot; Bash Scripting</li>
-            <li><b>Other</b> &nbsp; Management &middot; Public Speaking &middot; Video Editing &middot; Music Production &middot; Audio Editing</li>
-        </ul>
+<h2>Things I built</h2>
 
-        <div class="candy-btn-wrap">
-            <button id="candy-btn" onclick="feedCandy()">feed candy</button>
-        </div>
+<h3><a target="_blank" rel="noopener" href="https://github.com/unclecode/hypestream">Hypestream</a></h3>
+<p>HypeStream decouples the hype engine from real-world trends. It uses a 3 tiered approach to detect trends and hydrate those trends by using Crawl4AI to scrape the open web around any topic. It micro-chunks what it finds into card-sized signals, and streams them into a social-media-grade infinite feed - synthetic hype, on demand, for whatever you actually care about.</p>
 
-    </div>
+<h3><a target="_blank" rel="noopener" href="https://github.com/SohamKukreti/Crowd-Congestion-Detection">Crowd Congestion Detection</a></h3>
+<p>Real-time crowd congestion detection on a Jetson Nano. It switches between YOLOv5 head detection and CSRNet density estimation depending on how packed the scene is, and runs on the edge via TensorRT.</p>
 
-    <script>
-        const EMOJIS = ['🍭','🍬','🌈','🦄','⭐','🌟','✨','💫','🎉','🎊','🍦','🎠','🎡','🎪','💥','🌸','🍉','🎶','🔮','🏳️‍🌈'];
-        const BANNER_TEXT = '🍭 SUGAR RUSH 🌈 CANDY TIME 🦄 WHEEEEE 🎉 YAY YAY YAY 🍬 RAINBOW MODE 💫 SO MANY COLOURS ✨ MAXIMUM CHAOS 🎠 SPIN SPIN SPIN 🍭 SUGAR RUSH 🌈 CANDY TIME 🦄 WHEEEEE 🎉 YAY YAY YAY 🍬 RAINBOW MODE 💫 SO MANY COLOURS ✨ MAXIMUM CHAOS 🎠 SPIN SPIN SPIN ';
+<h3><a target="_blank" rel="noopener" href="https://github.com/SohamKukreti/URLias">URLias</a></h3>
+<p>A cross browser extension that lets you jump to any site with a short alias. It allows you to search within popular websites, run powerful shortcuts to open multiple websites at once and do wildcard matching. It hooks into the omnibox, and syncs your aliases across machines.</p>
 
-        function feedCandy() {
-            const isCandy = document.body.classList.toggle('candy-mode');
+<h3><a target="_blank" rel="noopener" href="https://github.com/SohamKukreti/beatbox2drums">beatbox2drums</a></h3>
+<p>Records a beatbox phrase in the browser, splits it into individual hits, classifies each one as kick, snare, or hi-hat with a custom-trained model, and plays the pattern back with electronic drum sounds.</p>
 
-            if (isCandy) {
-                // top banner
-                const top = document.createElement('div');
-                top.className = 'candy-banner candy-banner-top';
-                top.innerHTML = `<span class="banner-inner">${BANNER_TEXT.repeat(2)}</span>`;
-                document.body.prepend(top);
+<h3><a target="_blank" rel="noopener" href="https://github.com/SohamKukreti/notedraw">notedraw</a></h3>
+<p>Draw your music. A browser-based loop creator where you sketch freehand strokes on a MIDI grid and hear them play back. The row sets the pitch or drum, the stroke sets the timing, and the canvas is your score.</p>
 
-                // bottom banner (opposite direction)
-                const bot = document.createElement('div');
-                bot.className = 'candy-banner candy-banner-bottom';
-                bot.innerHTML = `<span class="banner-inner" style="animation-direction:reverse">${BANNER_TEXT.repeat(2)}</span>`;
-                document.body.append(bot);
+<h3><a target="_blank" rel="noopener" href="https://github.com/SohamKukreti/emotiv-bci">BCI Gaming</a></h3>
+<p>Playing video games with your brain. It reads EEG signals off an Emotiv headset and turns them into game input.</p>
 
-                // floating emoji stars
-                for (let i = 0; i < 28; i++) {
-                    const star = document.createElement('div');
-                    star.className = 'candy-star';
-                    star.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
-                    star.style.left = (Math.random() * 100) + 'vw';
-                    star.style.fontSize = (1 + Math.random() * 2.5) + 'rem';
-                    star.style.animationDuration = (3 + Math.random() * 5) + 's';
-                    star.style.animationDelay = (Math.random() * 4) + 's';
-                    document.body.append(star);
-                }
 
-                document.getElementById('candy-btn').textContent = '🍭 STOP THE CHAOS 🍭';
-            } else {
-                document.querySelectorAll('.candy-banner, .candy-star').forEach(el => el.remove());
-                document.getElementById('candy-btn').textContent = 'feed candy';
-            }
-        }
-    </script>
+<h2>Where I work</h2>
+
+<h3>Crawl4AI, engineer, since Dec 2025</h3>
+<p> I help maintain Crawl4AI, one of the most popular web crawling Python libraries on GitHub. I root-cause and fix bugs, like cleaning up leaked Playwright drivers and chaining the Docker egress proxy through upstream proxies, and I ship requested features, such as PDF scraping through the Docker API, configurable LLM backoff, and a full website-to-API example. I also help build and test Crawl4AI Cloud, which we are launching soon.</p>
+
+<h3>MagicBricks, data science intern, summer 2025</h3>
+<p>Built a RAG pipeline over real estate PDFs using Tesseract OCR, the Google Embeddings API, and Weaviate. Ran 20,000+ properties through it to find matches within 3 to 5 km, and quantized the embeddings down to a quarter of the memory.</p>
+
+<h3>jobup.ai, intern, late 2024</h3>
+<p>Wrote backend APIs in Flask and shipped LLM powered features on top of them, using RAG and structured outputs.</p>
+
+<h3>OSDC JIIT Noida, technical coordinator, since Jul 2024</h3>
+<p>During my college years I was a key part of our Open Source Developer's community. We put on hackathons, talks, and events for over 800+ students.</p>
+
+
+<h2>Other things</h2>
+
+<p>I won OSDHACK'23 and Codejam v3, and placed top 5 at BITBOX 3.0.</p>
+
+<p>Day to day I write Python, JavaScript, and TypeScript, with some C and C++ when the job calls for it. Lately I have been dabbling with technologies such as FastAPI, Playwright, Docker, Redis, and PyTorch, and I keep building browser extensions for fun.</p>
+
+<p>Want to build something? Find me on <a target="_blank" rel="noopener" href="https://github.com/SohamKukreti">GitHub</a>.</p>
+
 </body>
 </html>
