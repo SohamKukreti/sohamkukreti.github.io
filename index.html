@@ -4,13 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Soham Kukreti</title>
+<link rel="preload" href="assets/My-Hand-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/portrait.svg" as="image">
 <style>
   @font-face {
     font-family: "My-Hand";
-    src: url("assets/My-Hand-Regular.ttf") format("truetype");
+    src: url("assets/My-Hand-Regular.woff2") format("woff2"),
+         url("assets/My-Hand-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
   }
   body {
     font-family: "My-Hand", "Georgia", serif;
@@ -59,7 +62,7 @@
 
 <h2>Things I built</h2>
 
-<h3><a target="_blank" rel="noopener" href="https://github.com/unclecode/hypestream">Hypestream</a></h3>
+<h3><a target="_blank" rel="noopener" href="https://hypestream.tech/">Hypestream</a></h3>
 <p>HypeStream decouples the hype engine from real-world trends. It uses a 3 tiered approach to detect trends and hydrate those trends by using Crawl4AI to scrape the open web around any topic. It micro-chunks what it finds into card-sized signals, and streams them into a social-media-grade infinite feed - synthetic hype, on demand, for whatever you actually care about.</p>
 
 <h3><a target="_blank" rel="noopener" href="https://github.com/SohamKukreti/Crowd-Congestion-Detection">Crowd Congestion Detection</a></h3>
